@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Lateral
+  - Vertical
+  - Jugador
+  - Articulo
+  - Cohete
+  - Espina
   layers:
   - Default
   - TransparentFX

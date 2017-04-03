@@ -25,12 +25,5 @@ public class ColocarLimites : MonoBehaviour {
 
 		this.superior.transform.localScale = new Vector3 (anchoPuntos, 1, 1);
 		this.inferiror.transform.localScale = new Vector3 (anchoPuntos, 1, 1);
-
-		Debug.Log (this.izquierdo.transform.position);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

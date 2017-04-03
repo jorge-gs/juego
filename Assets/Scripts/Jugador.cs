@@ -3,27 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Jugador : MonoBehaviour {
-	private float tiempo;
+	//Variables privadas
+	private Rigidbody2D cuerpoRigido;
 
-	// Use this for initialization
-	void Start () {
-		
+	private int direccion = 1;
+
+	//Variables serializables
+	public Vector2 objetivoVelocidad;
+
+	void Awake () {
+		this.cuerpoRigido = this.GetComponent<Rigidbody2D> ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (this.tiempo > 5) {
-			this.tiempo = (this.tiempo - 5) + Time.deltaTime;
-		} else {
-			this.tiempo += Time.deltaTime;
+
+	void Update() {
+		if (Input.GetMouseButtonDown (0)) {
+			this.actualizarVelocidad (null, this.objetivoVelocidad.y);
 		}
+	}
 
-		Vector3 posicion = 1.25f * new Vector3 (Mathf.Cos(2 * Mathf.PI / 5 * tiempo), Mathf.Sin(2 * Mathf.PI / 5 * tiempo));
-		float angulo = Mathf.Atan2 (posicion.y, posicion.x);
+	void FixedUpdate () {
+		this.actualizarVelocidad (this.objetivoVelocidad.x * this.direccion, null);
+	}
 
-		this.gameObject.GetComponent<Rigidbody2D> ().position = posicion;
-		this.gameObject.transform.rotation = Quaternion.Euler(0, 0, angulo);
+	void OnCollisionEnter2D(Collision2D collision) {
+		if (collision.gameObject.CompareTag ("Lateral")) {
+			this.direccion *= -1;
+		}
+	}
+		
+	private void actualizarVelocidad(float? x, float? y) {
+		Vector2 velocidad = new Vector2 (this.cuerpoRigido.velocity.x, this.cuerpoRigido.velocity.y);
+		if (x != null) velocidad.x = (float)x;
+		if (y != null) velocidad.y = (float)y;
 
-		Debug.Log (this.gameObject.transform.rotation);
+		this.cuerpoRigido.velocity = velocidad;
 	}
 }
