@@ -19,7 +19,8 @@ public class GeneradorEspinas : MonoBehaviour {
 		for (int i = 0; i < 10; i++) {
 			GameObject espina = GameObject.CreatePrimitive (PrimitiveType.Cube);
 			espina.transform.localScale = new Vector3 (0.5f, 0.5f, 0.5f);
-			espina.transform.position = new Vector3 (1f, -4.5f + i);
+			espina.transform.position = new Vector3 (this.lateralOpuesto.transform.position.x + (this.direccion * 0.75f), -4.5f + i);
+
 			espina.transform.parent = this.lateralOpuesto.transform;
 
 			this.lateralOpuesto.espinas.Add (espina);
