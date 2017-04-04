@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Jugador : MonoBehaviour {
-	//Variables privadas
+	//Propiedades privadas
 	private Rigidbody2D cuerpoRigido;
 
 	private int direccion = 1;
 
-	//Variables serializables
+	//Propiedades serializables
 	public Vector2 objetivoVelocidad;
 
 	void Awake () {

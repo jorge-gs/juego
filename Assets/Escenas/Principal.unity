@@ -277,6 +277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1138281843}
   - component: {fileID: 1138281844}
+  - component: {fileID: 1138281845}
   m_Layer: 0
   m_Name: Izquierdo
   m_TagString: Lateral
@@ -311,6 +312,19 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!114 &1138281845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1138281842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9ff278f6f4114c679966ff0b77a4f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lateralOpuesto: {fileID: 1410932119}
+  direccion: -1
 --- !u!1 &1150729641
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,6 +524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1410932118}
   - component: {fileID: 1410932117}
+  - component: {fileID: 1410932119}
   m_Layer: 0
   m_Name: Derecho
   m_TagString: Lateral
@@ -544,6 +559,19 @@ Transform:
   m_Father: {fileID: 1391224052}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1410932119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1410932116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9ff278f6f4114c679966ff0b77a4f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lateralOpuesto: {fileID: 1138281845}
+  direccion: 1
 --- !u!1 &1799069633
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ColocarLimites : MonoBehaviour {
+	//Propiedades serializables
 	public GameObject inferiror;
 	public GameObject superior;
 	public GameObject izquierdo;
