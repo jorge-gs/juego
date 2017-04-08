@@ -7,6 +7,7 @@ public class Jugador : MonoBehaviour {
 	private Rigidbody2D cuerpoRigido;
 
 	private int direccion = 1;
+    private int puntos=0;
 
 	//Propiedades serializables
 	public Vector2 objetivoVelocidad;
@@ -28,6 +29,7 @@ public class Jugador : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D collision) {
 		if (collision.gameObject.CompareTag ("Lateral")) {
 			this.direccion *= -1;
+            this.puntos+=1;
 		}
 	}
 		
