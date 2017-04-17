@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GeneradorEspinas : MonoBehaviour {
-	public static int numeroEspinas = 5;
+	public static int numeroEspinas = 3;
 
 	//Propiedades privadas
 	private List<GameObject> espinas = new List<GameObject> ();
 
 	//Propiedades serializables
 	public GeneradorEspinas lateralOpuesto;
+	public Jugador jugador;
 	public int direccion;
 
 	void OnCollisionEnter2D(Collision2D collision) {
@@ -19,6 +20,7 @@ public class GeneradorEspinas : MonoBehaviour {
 		this.espinas.Clear ();
 
 		this.GenerarEspinas ();
+		Debug.Log (GeneradorEspinas.numeroEspinas);
 	}
 
 	private void GenerarEspinas () {
@@ -36,6 +38,10 @@ public class GeneradorEspinas : MonoBehaviour {
 
 				this.lateralOpuesto.espinas.Add (espina);
 				i++;
+
+				if (i == GeneradorEspinas.numeroEspinas) {
+					break;
+				}
 			}
 		}
 	}

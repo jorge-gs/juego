@@ -5,12 +5,25 @@ using UnityEngine;
 public class Jugador : MonoBehaviour {
 	//Propiedades privadas
 	private Rigidbody2D cuerpoRigido;
-
-	private int direccion = 1;
-    private int puntos=0;
+	private int _direccion = 1;
+	private int _puntos = 0;
 
 	//Propiedades serializables
 	public Vector2 objetivoVelocidad;
+
+	//Propiedades calculadas
+	public int direccion {
+		get { return this._direccion; }
+		set { this._direccion = value; }
+	}
+
+	public int puntos {
+		get { return this._puntos; }
+		set {
+			this._puntos = value;
+			GeneradorEspinas.numeroEspinas += (value % 10 == 0 && value / 10 < 4) ? 1 : 0;
+		}
+	}
 
 	void Awake () {
 		this.cuerpoRigido = this.GetComponent<Rigidbody2D> ();
@@ -23,13 +36,13 @@ public class Jugador : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		this.ActualizarVelocidad (this.objetivoVelocidad.x * this.direccion, null);
+		this.ActualizarVelocidad (this.objetivoVelocidad.x * this._direccion, null);
 	}
 
 	void OnCollisionEnter2D(Collision2D collision) {
 		if (collision.gameObject.CompareTag ("Lateral")) {
 			this.direccion *= -1;
-            this.puntos+=1;
+			this.puntos += 1;
 		}
 	}
 		
