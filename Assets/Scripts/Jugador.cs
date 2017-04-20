@@ -7,11 +7,17 @@ public class Jugador : MonoBehaviour {
 	private Rigidbody2D cuerpoRigido;
 	private int _direccion = 1;
 	private int _puntos = 0;
+	private bool _esInvencible = false;
 
 	//Propiedades serializables
 	public Vector2 objetivoVelocidad;
 
 	//Propiedades calculadas
+	public bool esInvencible {
+		get { return this._esInvencible; }
+		set { this._esInvencible = value; }
+	}
+
 	public int direccion {
 		get { return this._direccion; }
 		set { this._direccion = value; }
