@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lateralOpuesto: {fileID: 1410932119}
-  prefabEspina: {fileID: 1560108660393306, guid: e0fc56905b2d04529bffbe350d243885,
+  prefabEspina: {fileID: 1561375068367658, guid: d1618f4f9c15fad4db370708ff5ff344,
     type: 2}
   jugador: {fileID: 1150729647}
   direccion: -1
@@ -732,7 +732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lateralOpuesto: {fileID: 1138281845}
-  prefabEspina: {fileID: 1560108660393306, guid: e0fc56905b2d04529bffbe350d243885,
+  prefabEspina: {fileID: 1561375068367658, guid: d1618f4f9c15fad4db370708ff5ff344,
     type: 2}
   jugador: {fileID: 1150729647}
   direccion: 1
