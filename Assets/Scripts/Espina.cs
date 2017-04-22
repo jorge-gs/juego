@@ -15,4 +15,17 @@ public class Espina : MonoBehaviour {
 			SceneManager.LoadScene ("Principal");
 		}
 	}
+
+   public  void Desaparecer()
+    {
+        Debug.Log("Desaparecer");
+        var animador = this.gameObject.GetComponentInParent <Animator>();
+        animador.SetBool("activo", false);
+        Destroy(this, 0.5f);
+    }
+
+    private void Eliminar()
+    {
+      
+    }
 }
