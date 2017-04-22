@@ -8,6 +8,7 @@ public class Jugador : MonoBehaviour {
 	private int _direccion = 1;
 	private int _puntos = 0;
 	private bool _esInvencible = false;
+    private bool _pausa = true;
 
 	//Propiedades serializables
 	public Vector2 objetivoVelocidad;
@@ -36,13 +37,23 @@ public class Jugador : MonoBehaviour {
 	}
 
 	void Update() {
+     
 		if (Input.GetMouseButtonDown (0)) {
+            if (_pausa)
+            {
+                _pausa = false;
+                Time.timeScale = 1;
+            }
 			this.ActualizarVelocidad (null, this.objetivoVelocidad.y);
+
 		}
 	}
 
 	void FixedUpdate () {
+        if(!_pausa){
 		this.ActualizarVelocidad (this.objetivoVelocidad.x * this._direccion, null);
+       
+            }
 	}
 
 	void OnCollisionEnter2D(Collision2D collision) {
