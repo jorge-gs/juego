@@ -19,7 +19,8 @@ public class GeneradorEspinas : MonoBehaviour {
             var animador = contenedor.gameObject.GetComponent<Animator>();
             animador.SetBool("estaActivo", false);
 
-            Destroy(contenedor, 0.5f);
+			Debug.Log ("Debería de animar");
+			Destroy (contenedor, 0.5f);
 		}
 		this.espinas.Clear ();
 

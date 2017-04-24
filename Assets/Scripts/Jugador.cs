@@ -13,7 +13,7 @@ public class Jugador : MonoBehaviour {
 	//Propiedades serializables
 	public Vector2 objetivoVelocidad;
 
-	//Propiedades calculadas
+	//Get y set
 	public bool esInvencible {
 		get { return this._esInvencible; }
 		set { this._esInvencible = value; }
