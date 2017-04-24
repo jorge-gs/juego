@@ -8,7 +8,13 @@ public class ColocarLimites : MonoBehaviour {
 	public GameObject superior;
 	public GameObject izquierdo;
 	public GameObject derecho;
+	public GameObject superficie;
+	public GameObject fondo;
 	public Camera camara;
+
+	void Awake() {
+		Time.timeScale = 0;
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -19,12 +25,15 @@ public class ColocarLimites : MonoBehaviour {
 		//Obtener dimensiones en puntos
 		float razonPixelesPuntos = altoPixeles / (2 * this.camara.orthographicSize);
 		float anchoPuntos = anchoPixeles / razonPixelesPuntos;
-		float altoPuntos = anchoPixeles / razonPixelesPuntos;
+		float altoPuntos = altoPixeles / razonPixelesPuntos;
 
 		this.derecho.transform.position = new Vector3 ((anchoPuntos + 1) / 2, 0);
 		this.izquierdo.transform.position = new Vector3 (-(anchoPuntos + 1) / 2, 0);
 
 		this.superior.transform.localScale = new Vector3 (anchoPuntos, 1, 1);
 		this.inferiror.transform.localScale = new Vector3 (anchoPuntos, 1, 1);
+
+		this.superficie.transform.localScale = new Vector3 (anchoPuntos, altoPuntos);
+		this.fondo.transform.localScale = new Vector3 (anchoPuntos, altoPuntos);
 	}
 }

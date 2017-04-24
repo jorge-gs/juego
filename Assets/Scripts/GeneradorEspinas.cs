@@ -27,7 +27,6 @@ public class GeneradorEspinas : MonoBehaviour {
 	}
 
 	private void GenerarEspinas () {
-        Debug.Log("Generar espinas");
 		//i es el numero de espinas generadas
 		int i = 0;
 		//j es el numero de puestos
@@ -37,9 +36,8 @@ public class GeneradorEspinas : MonoBehaviour {
 			int espinasRestantes = GeneradorEspinas.numeroEspinas - i;
             if (puestosRestantes <= espinasRestantes || Random.value >= 0.5)
             {
-                Debug.Log("Generando espina");
 				GameObject espina = Instantiate (prefabEspina);//GameObject.CreatePrimitive (PrimitiveType.Cube);
-				espina.transform.localScale = new Vector3 (0.5f, 0.5f, 0.5f);
+				espina.transform.localScale = new Vector3 (1f, 1f, 1f);
 				espina.transform.position = new Vector3 (this.lateralOpuesto.transform.position.x + (this.direccion * 0.25f), -4.5f + j, -1);
 				espina.transform.rotation = Quaternion.Euler (new Vector3 (0, rotar ? 180 : 0)); 
 				espina.transform.parent = this.lateralOpuesto.transform;
