@@ -3,18 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Superficie : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	public static event Click OnClick;
+	public delegate void Click();
 
 	void OnMouseDown() {
-		Debug.Log ("OnMouseDown");
+		if (OnClick != null) {
+			OnClick ();
+		}
 	}
 }
