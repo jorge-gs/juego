@@ -13,7 +13,7 @@ public class Jugador : MonoBehaviour {
 	//Propiedades serializables
 	public Vector2 objetivoVelocidad;
 
-	//Propiedades calculadas
+	//Get y set
 	public bool esInvencible {
 		get { return this._esInvencible; }
 		set { this._esInvencible = value; }
@@ -32,28 +32,28 @@ public class Jugador : MonoBehaviour {
 		}
 	}
 
+	public bool pausa {
+		get { return this._pausa; }
+		set { this._pausa = value; }
+	}
+
+	//Metodos Unity
 	void Awake () {
 		this.cuerpoRigido = this.GetComponent<Rigidbody2D> ();
 	}
 
-	void Update() {
-     
-		if (Input.GetMouseButtonDown (0)) {
-            if (_pausa)
-            {
-                _pausa = false;
-                Time.timeScale = 1;
-            }
-			this.ActualizarVelocidad (null, this.objetivoVelocidad.y);
+	void OnEnable() {
+		Superficie.OnClick += OnClick;
+	}
 
-		}
+	void OnDisable() {
+		Superficie.OnClick -= OnClick;
 	}
 
 	void FixedUpdate () {
-        if(!_pausa){
-		this.ActualizarVelocidad (this.objetivoVelocidad.x * this._direccion, null);
-       
-            }
+		if (!pausa) {
+			this.ActualizarVelocidad (this.objetivoVelocidad.x * this._direccion, null);
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D collision) {
@@ -61,6 +61,16 @@ public class Jugador : MonoBehaviour {
 			this.direccion *= -1;
 			this.puntos += 1;
 		}
+	}
+
+	//Metodos
+	public void OnClick() {
+		if (pausa)
+		{
+			pausa = false;
+			Time.timeScale = 1;
+		}
+		this.ActualizarVelocidad (null, this.objetivoVelocidad.y);
 	}
 		
 	private void ActualizarVelocidad(float? x, float? y) {
