@@ -68,8 +68,9 @@ public class Jugador : MonoBehaviour {
 
 	//Metodos
 	public void OnClick() {
-		if (this.enPausa) { this.enPausa = false; }
-		this.ActualizarVelocidad (null, this.objetivoVelocidad.y);
+		if (!this.enPausa) {
+			this.ActualizarVelocidad (null, this.objetivoVelocidad.y);
+		}
 	}
 
 	public void OnPausa() {
