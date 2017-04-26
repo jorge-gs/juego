@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Jugador : MonoBehaviour {
 	//Propiedades privadas
@@ -12,6 +13,7 @@ public class Jugador : MonoBehaviour {
 
 	//Propiedades serializables
 	public Vector2 objetivoVelocidad;
+	public Text puntuacion;
 
 	//Get y set
 	public bool esInvencible {
@@ -28,6 +30,7 @@ public class Jugador : MonoBehaviour {
 		get { return this._puntos; }
 		set {
 			this._puntos = value;
+			this.puntuacion.text = "" + value;
 			GeneradorEspinas.numeroEspinas += (value % 10 == 0 && value / 10 < 4) ? 1 : 0;
 		}
 	}
