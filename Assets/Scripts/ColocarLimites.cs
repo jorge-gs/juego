@@ -12,10 +12,6 @@ public class ColocarLimites : MonoBehaviour {
 	public GameObject fondo;
 	public Camera camara;
 
-	void Awake() {
-		Time.timeScale = 0;
-	}
-
 	// Use this for initialization
 	void Start () {
 		//Obtener dimensiones en pixeles

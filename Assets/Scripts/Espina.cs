@@ -12,7 +12,7 @@ public class Espina : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collision) {
 		if (collision.gameObject.CompareTag("Jugador")) {
-			SceneManager.LoadScene ("Principal");
+			SceneManager.LoadScene ("Inicio");
 		}
 	}
 }

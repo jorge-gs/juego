@@ -8,7 +8,7 @@ public class Jugador : MonoBehaviour {
 	private int _direccion = 1;
 	private int _puntos = 0;
 	private bool _esInvencible = false;
-    private bool _pausa = true;
+	private bool _pausa = false;
 
 	//Propiedades serializables
 	public Vector2 objetivoVelocidad;
