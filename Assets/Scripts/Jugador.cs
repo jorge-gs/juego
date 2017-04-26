@@ -32,9 +32,12 @@ public class Jugador : MonoBehaviour {
 		}
 	}
 
-	public bool pausa {
+	public bool enPausa {
 		get { return this._pausa; }
-		set { this._pausa = value; }
+		set { 
+			this._pausa = value;
+			Time.timeScale = this._pausa ? 0 : 1;
+		}
 	}
 
 	//Metodos Unity
@@ -51,7 +54,7 @@ public class Jugador : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		if (!pausa) {
+		if (!enPausa) {
 			this.ActualizarVelocidad (this.objetivoVelocidad.x * this._direccion, null);
 		}
 	}
@@ -65,12 +68,12 @@ public class Jugador : MonoBehaviour {
 
 	//Metodos
 	public void OnClick() {
-		if (pausa)
-		{
-			pausa = false;
-			Time.timeScale = 1;
-		}
+		if (this.enPausa) { this.enPausa = false; }
 		this.ActualizarVelocidad (null, this.objetivoVelocidad.y);
+	}
+
+	public void OnPausa() {
+		this.enPausa = !this.enPausa;
 	}
 		
 	private void ActualizarVelocidad(float? x, float? y) {
