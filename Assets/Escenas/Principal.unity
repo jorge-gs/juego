@@ -384,6 +384,7 @@ GameObject:
   - component: {fileID: 442372800}
   - component: {fileID: 442372799}
   - component: {fileID: 442372802}
+  - component: {fileID: 442372803}
   m_Layer: 5
   m_Name: Pausa
   m_TagString: Untagged
@@ -406,9 +407,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -10}
+  m_AnchoredPosition: {x: 20, y: -45}
   m_SizeDelta: {x: 50, y: 50}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &442372799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,14 +441,25 @@ MonoBehaviour:
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
-    m_HighlightedTrigger: Resaltado
-    m_PressedTrigger: Presionado
-    m_DisabledTrigger: Desactivado
+    m_HighlightedTrigger: Resaltar
+    m_PressedTrigger: Presionar
+    m_DisabledTrigger: Desactivar
   m_Interactable: 1
   m_TargetGraphic: {fileID: 442372800}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 442372803}
+        m_MethodName: OnSeleccionar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &442372800
@@ -492,7 +504,7 @@ Animator:
   m_GameObject: {fileID: 442372797}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bfee6227083e14100bb34ecaad22dfc4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3d6c3c60ccda64a308527d9bec5c6077, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
@@ -500,6 +512,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &442372803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 442372797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5685bfc1f00e407aa8b8927ad33a96f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seleccionar: 0
 --- !u!1 &593887442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,6 +1181,7 @@ GameObject:
   - component: {fileID: 1707362632}
   - component: {fileID: 1707362631}
   - component: {fileID: 1707362630}
+  - component: {fileID: 1707362634}
   m_Layer: 5
   m_Name: Silencio
   m_TagString: Untagged
@@ -1179,9 +1204,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10, y: -10}
+  m_AnchoredPosition: {x: -20, y: -45}
   m_SizeDelta: {x: 50, y: 50}
-  m_Pivot: {x: 1, y: 1}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!95 &1707362630
 Animator:
   serializedVersion: 3
@@ -1191,7 +1216,7 @@ Animator:
   m_GameObject: {fileID: 1707362628}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 71f60cf4c3f074c648caf26eef737313, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5590d4f0a7abd454ea68177828a110b2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
@@ -1230,14 +1255,25 @@ MonoBehaviour:
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
-    m_HighlightedTrigger: Resaltado
-    m_PressedTrigger: Presionado
-    m_DisabledTrigger: Desactivado
+    m_HighlightedTrigger: Resaltar
+    m_PressedTrigger: Presionar
+    m_DisabledTrigger: Desactivar
   m_Interactable: 1
   m_TargetGraphic: {fileID: 1707362632}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1707362634}
+        m_MethodName: OnSeleccionar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1707362632
@@ -1273,6 +1309,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1707362628}
+--- !u!114 &1707362634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1707362628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4a6e63333ad9406582be4abd1131511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seleccionar: 0
 --- !u!1 &1799069633
 GameObject:
   m_ObjectHideFlags: 0
