@@ -4,15 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Jugador : MonoBehaviour {
-	private static int _puntuacionMaxima;
-	private static int puntuacionMaxima {
-		get { return Jugador._puntuacionMaxima; }
-		set {
-			Jugador._puntuacionMaxima = value;
-			PlayerPrefs.SetInt ("Puntuacion", value);
-		}
-	}
-
 	//Propiedades privadas
 	private Rigidbody2D cuerpoRigido;
 	private int _direccion = 1;
@@ -41,7 +32,6 @@ public class Jugador : MonoBehaviour {
 			this._puntos = value;
 			this.puntuacion.text = "" + value;
 			GeneradorEspinas.numeroEspinas += (value % 10 == 0 && value / 10 < 4) ? 1 : 0;
-			if (Jugador.puntuacionMaxima < value) { Jugador.puntuacionMaxima = value; }
 		}
 	}
 
@@ -56,7 +46,6 @@ public class Jugador : MonoBehaviour {
 	//Metodos Unity
 	void Awake () {
 		this.cuerpoRigido = this.GetComponent<Rigidbody2D> ();
-		Jugador._puntuacionMaxima = PlayerPrefs.GetInt ("Puntuacion");
 	}
 
 	void OnEnable() {
