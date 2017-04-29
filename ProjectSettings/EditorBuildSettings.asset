@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Escenas/Principal.unity
     guid: 1c8a649d33241438a81bdb87334cff7c
+  - enabled: 1
+    path: Assets/Escenas/Perder.unity
+    guid: d1b10170b852d4e81a951c780d55436b
