@@ -9,7 +9,7 @@ public class LimitesVerticales : MonoBehaviour {
 		if (collision.gameObject.CompareTag ("Jugador")) {
 			var jugador = collision.gameObject.GetComponent<Jugador> ();
 			if (!jugador.esInvencible) {
-				SceneManager.LoadScene ("Inicio");
+				SceneManager.LoadScene ("Perder");
 			}
 		}
 	}
